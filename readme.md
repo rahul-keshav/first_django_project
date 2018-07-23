@@ -1,1 +1,1 @@
-## Django blog application for Hello Django tutorial
+## This is my first django experince.
