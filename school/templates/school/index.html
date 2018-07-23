@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+school_index
+
+{% if school %}
+    <ul>
+    {% for school in school %}
+        <li><a href="{% url 'school:detail' school.id %}">{{ school.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No schools are available.</p>
+{% endif %}
+
+<a href="{% url 'school:school_add' %}">add</a>
+</body>
+</html>
+
+

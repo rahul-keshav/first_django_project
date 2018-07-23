@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index college</title>
+</head>
+<body>
+{% if college %}
+    <ul>
+    {% for college in college %}
+        <li><a href="{% url 'college:detail' college.id %}">{{ college.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No college are available.</p>
+{% endif %}
+
+<a href="{% url 'college:college_add' %}">add</a>
+
+</body>
+</html>

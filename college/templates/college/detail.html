@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+
+{{ college.name }}
+<img src="{{ college.college_logo }}" >
+{{ college.address }}
+{{ college.city }}
+{{ college.country }}
+
+<br>
+
+{% if college.department_set.all %}
+
+    <ul>
+    {% for department in college.department_set.all %}
+        <li><a href=" {% url 'college:department'  department.id  %} "> {{department.department_name}}</a></li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    no department available
+
+{% endif%}
+
+<a href="{% url 'college:department_add'%}">add department</a>
+
+
+
+</body>
+</html>

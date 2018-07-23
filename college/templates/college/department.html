@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>department</title>
+</head>
+<body>
+
+{% if department.course_set.all %}
+
+    <ul>
+    {% for course in department.course_set.all %}
+        <li><a href=" {% url 'college:course'  course.id  %} "> {{course.course_name}}</a></li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    no course available
+
+{% endif%}
+
+<a href="{% url 'college:course_add'%}">add course</a>
+
+</body>
+</html>

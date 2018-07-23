@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course</title>
+</head>
+<body>
+
+<h1>{{ course.course_name }}</h1>
+{% if course.semester_set.all %}
+    <ul>
+    {% for semester in course.semester_set.all %}
+        <li><a href="{% url 'college:subject' %}">{{semester.semester_name}}</a></li>
+    {% endfor %}
+    </ul>
+{% else%}
+
+   no semester are available
+
+{% endif %}
+
+<a href="{% url 'college:semester_add'%}">add semester</a>
+
+</body>
+</html>
